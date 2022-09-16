@@ -22,9 +22,10 @@ const alts = {
 }
 
 
-/* Looping through images */
+// loops through image array
 for (const image of images) {
     const newImage = document.createElement('img');
+    // set attribute of element img to = looped images in array
     newImage.setAttribute('src', image)
     newImage.setAttribute('alt', alts[image]);
     thumbBar.appendChild(newImage);
@@ -33,11 +34,13 @@ for (const image of images) {
         displayedImage.alt = e.target.alt;
     });
 }
-/* Wiring up the Darken/Lighten button */
+// listens for click
 btn.addEventListener('click', () => {
     const btnClass = btn.getAttribute('class')
     if (btnClass === 'dark') {
+        // grabs attribute of class 'light'
         btn.setAttribute('class', 'light')
+        // edit attributes of selected class
         btn.textContent = 'Lighten'
         overlay.style.backgroundColor = 'rgba(0,0,0,0.5)'
     } else {
